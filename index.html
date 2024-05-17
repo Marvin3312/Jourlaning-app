@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escaneo y conversión a PDF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #captureImages {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        img {
+            max-width: 100px;
+            height: auto;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escaneo y conversión a PDF</h1>
+    
+    <button onclick="startCapture()">Tomar Foto</button>
+    
+    <div id="captureImages"></div>
+
+    <button onclick="convertToPDF()">Convertir a PDF</button>
+
+    <video id="video" width="640" height="480" autoplay playsinline style="display:none;"></video>
+    <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@^1.16.0/dist/pdf-lib.js"></script>
+    <script src="main.js">
+    </script>
+</body>
+</html>
