@@ -1,0 +1,39 @@
+
+.logo{
+    border:0;
+    width: 90%;
+}
+
+section{
+    height: 50vh;
+}
+
+section{
+
+    background-color: url(imgr/Clipped_image_20240517_182051.png);
+    max-width: 100%;
+}
+
+#video{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    max-width: 60%;
+    align-items: center;
+    justify-items: center;
+}
+
+@media (width <= 370px) {
+
+body{
+    background-color: aqua;
+}
+
+.boton{
+
+    margin: 0;
+    background-color: antiquewhite;
+
+}
+    
+}
