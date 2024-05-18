@@ -1,4 +1,6 @@
-
+body{
+   background-color: blanchedalmond;
+}
 .logo{
     border:0;
     width: 90%;
@@ -14,6 +16,9 @@ section{
     max-width: 100%;
 }
 
+.elementod{
+    
+}
 #video{
     display: grid;
     align-content: center;
@@ -23,6 +28,13 @@ section{
     justify-items: center;
 }
 
+.contenedor{
+    display: inline-flex;
+}
+
+.mt-5{
+    margin-top: 10vh;
+}
 @media (width <= 370px) {
 
 body{

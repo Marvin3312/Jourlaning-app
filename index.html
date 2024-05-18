@@ -51,26 +51,28 @@
 
     <section class="container-md mt-5">
      
-    <h1 class=" mt-5" >Escaneo y conversión a PDF</h1>
+    <h1 class="mt-5" >
+    </h1>
     </section>
-    <div class="conteiner mt-5 m-5">
+    <div class="conteiner mt-5 " class="contenedor">
 
-        <button class="btn btn-primary p-3 col-5" class="boton" onclick="startCapture()">Iniciar Captura</button>
+        <button class="btn btn-primary p-3 col" class="boton" onclick="startCapture()">Iniciar Captura</button>
 
         <!-- Elemento para mostrar las imágenes capturadas -->
 
 
         <!-- Botón para convertir a PDF -->
-        <button class="btn btn-primary p-3 col-5 " onclick="convertToPDF()">Convertir a PDF</button>
+        <button class="btn btn-primary p-3 col " class="boton" onclick="convertToPDF()">Convertir a PDF</button>
 
 
     </div>
 
     <div id="captureImages"></div>
     <!-- Elemento video para captura -->
-    <video id="video" width="640" height="480" autoplay style="display:none;"></video>
-    <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
-
+    <center>
+    <video class="elementod" id="video" width="640" height="480" autoplay style="display:none;"></video>
+    <canvas class="elementod" id="canvas" width="640" height="480" style="display:none;"></canvas>
+    </center>
     
 </body>
 <script src="https://cdn.jsdelivr.net/npm/pdf-lib@^1.16.0/dist/pdf-lib.js"></script>
