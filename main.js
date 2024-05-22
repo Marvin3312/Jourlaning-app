@@ -8,11 +8,15 @@ async function startCapture() {
         return;
     }
 
-    // Solicitar acceso a la cámara
     try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        // Intentar acceder a la cámara trasera
+        const stream = await navigator.mediaDevices.getUserMedia({ 
+            video: { facingMode: { exact: 'environment' } } 
+        });
+
         video.srcObject = stream;
         video.style.display = 'block';
+
         video.onloadedmetadata = () => {
             context.drawImage(video, 0, 0, canvas.width, canvas.height);
             const imageData = canvas.toDataURL('image/png');
@@ -23,9 +27,33 @@ async function startCapture() {
             stream.getTracks().forEach(track => track.stop());
         };
     } catch (err) {
-        console.error('Error al acceder a la cámara: ', err);
+        console.error('Error al acceder a la cámara trasera: ', err);
+
+        try {
+            // Intentar acceder a la cámara frontal si falla el acceso a la cámara trasera
+            const stream = await navigator.mediaDevices.getUserMedia({ 
+                video: { facingMode: 'user' } 
+            });
+
+            video.srcObject = stream;
+            video.style.display = 'block';
+
+            video.onloadedmetadata = () => {
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                const imageData = canvas.toDataURL('image/png');
+                const imgElement = document.createElement('img');
+                imgElement.src = imageData;
+                document.getElementById('captureImages').appendChild(imgElement);
+                video.style.display = 'none';
+                stream.getTracks().forEach(track => track.stop());
+            };
+        } catch (err) {
+            console.error('Error al acceder a la cámara frontal: ', err);
+        }
     }
 }
+
+
 
 async function convertToPDF() {
     const captureImagesDiv = document.getElementById('captureImages');
